@@ -1,6 +1,7 @@
-﻿// Если тут подчёркивается, то скачай через нугет эту фигню
+﻿// Если что либо подчёркивается, то просто скачай через нугет эту фигню
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Microsoft.SqlServer.Dac;
 
 // Тут надо будет классы фигнь всех создать
 public class Product
@@ -15,9 +16,14 @@ public class AppDbContext : DbContext
 {
     public DbSet<Product> Products { get; set; }
 
+    static string connectionString = "Data Source=localhost;Initial Catalog=b2c-staging;User ID=sa;Password=Pa$$w0rd;TrustServerCertificate=true";
+    static string bacpacFilePath = $"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName}\\b.bacpac";
+    DacServices dacServices = new DacServices(connectionString);
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=1234");
+        dacServices.ImportBacpac(BacPackage.Load(bacpacFilePath), "DB_NAME", new DacImportOptions());
+        Console.WriteLine("Bacpac file loaded successfully.");
     }
 }
 
@@ -29,6 +35,8 @@ class Program
     static void Main()
     {
         var context = new AppDbContext();
+
+        //Console.WriteLine(context.bacpacFilePath);
 
         context.Database.EnsureCreated();
 

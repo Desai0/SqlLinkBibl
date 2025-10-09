@@ -530,6 +530,19 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.SqlServer.Dac/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.Data.Tools.Schema.Sql.dll": {},
+          "lib/Microsoft.Data.Tools.Utilities.dll": {},
+          "lib/Microsoft.SqlServer.Dac.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.Data.Tools.Schema.Sql.dll": {},
+          "lib/Microsoft.Data.Tools.Utilities.dll": {},
+          "lib/Microsoft.SqlServer.Dac.dll": {}
+        }
+      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "type": "package",
         "compile": {
@@ -1813,6 +1826,20 @@
         "runtime.json"
       ]
     },
+    "Microsoft.SqlServer.Dac/1.0.1": {
+      "sha512": "hM8XjneT/swpddD0p53Lpu01P8DTIoFshXJg2be8R2pWt8Zb3QJaZXaDaceXLO/ZrCYXlb241YuTxnWXl9/B6Q==",
+      "type": "package",
+      "path": "microsoft.sqlserver.dac/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Microsoft.Data.Tools.Schema.Sql.dll",
+        "lib/Microsoft.Data.Tools.Utilities.dll",
+        "lib/Microsoft.SqlServer.Dac.dll",
+        "microsoft.sqlserver.dac.1.0.1.nupkg.sha512",
+        "microsoft.sqlserver.dac.nuspec"
+      ]
+    },
     "Microsoft.SqlServer.Server/1.0.0": {
       "sha512": "N4KeF3cpcm1PUHym1RmakkzfkEv3GRMyofVv40uXsQhCQeglr2OHNcUk2WOG51AKpGO8ynGpo9M/kFXSzghwug==",
       "type": "package",
@@ -2793,7 +2820,9 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore >= 9.0.9",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.9"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.9",
+      "Microsoft.SqlServer.Dac >= 1.0.1",
+      "Microsoft.SqlServer.Server >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2803,11 +2832,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible\\fanfic bible.csproj",
+      "projectUniqueName": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
       "projectName": "fanfic bible",
-      "projectPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible\\fanfic bible.csproj",
+      "projectPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
       "packagesPath": "C:\\Users\\studentcoll\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible\\obj\\",
+      "outputPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2847,6 +2876,14 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[9.0.9, )"
+          },
+          "Microsoft.SqlServer.Dac": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "Microsoft.SqlServer.Server": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           }
         },
         "imports": [
@@ -2868,5 +2905,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Microsoft.SqlServer.Dac 1.0.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Microsoft.SqlServer.Dac",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
