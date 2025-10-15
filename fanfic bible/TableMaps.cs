@@ -3,7 +3,7 @@ using LinqToDB.Mapping;
 
 namespace fanfic_bible
 {
-    [Table(Name = "books")]
+    [Table(Name = "BOOKS")]
     public class book
     {
         [Key]
@@ -19,7 +19,7 @@ namespace fanfic_bible
         public int book_genre_id { get; set; }
     }
 
-    [Table(Name = "readers")]
+    [Table(Name = "READERS")]
     public class reader
     {
         [Key]
@@ -34,7 +34,7 @@ namespace fanfic_bible
 
     }
 
-    [Table(Name = "authors")]
+    [Table(Name = "AUTHORS")]
     public class author
     {
         [Key]
@@ -46,7 +46,7 @@ namespace fanfic_bible
         public string author_birth_date { get; set; }
     }
 
-    [Table(Name = "genres")]
+    [Table(Name = "GENRES")]
     public class genre
     {
         [Key]
@@ -56,7 +56,7 @@ namespace fanfic_bible
         public string genre_name { get; set; }
     }
 
-    [Table(Name = "issuance_key")]
+    [Table(Name = "ISSUANCE_KEY")]
     public class issuance_key
     {
         [Key]
