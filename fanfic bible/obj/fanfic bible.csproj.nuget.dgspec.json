@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
+    "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
   },
   "projects": {
-    "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
+    "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "projectUniqueName": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
         "projectName": "fanfic bible",
-        "projectPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
-        "packagesPath": "C:\\Users\\studentcoll\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
+        "projectPath": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "packagesPath": "C:\\Users\\SuperFurry228\\.nuget\\packages\\",
+        "outputPath": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\studentcoll\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SuperFurry228\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -46,19 +52,19 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
             },
-            "Microsoft.SqlServer.Dac": {
+            "Microsoft.SqlServer.DacFx": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[170.2.70, )"
             },
-            "Microsoft.SqlServer.Server": {
+            "linq2db": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[5.4.1, )"
             }
           },
           "imports": [
@@ -77,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
