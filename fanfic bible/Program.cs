@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using fanfic_bible;
+using static LinqToDB.Reflection.Methods.LinqToDB.Insert;
 
 // Тут надо будет придумать как подключиться к бд
 public class AppDbContext : DbContext
@@ -22,6 +23,7 @@ public class AppDbContext : DbContext
 
     // Данные нужно менять в зависимости от сервера на компе
     static string connectionString = "Data Source=SUPERPC228;Initial Catalog=DB_NAME;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True";
+    //static string connectionString = "Data Source=192.168.9.203\\sqlexpress;Initial Catalog=DB_NAME;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True";
     static string bacpacFilePath = $"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName}\\b.bacpac";
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -45,24 +47,46 @@ class Program
         ,   USER_IS_AUTHOR  = 1
         ,   USER_IS_READER  = 2
     };
-    static int CheckIfUserExists(string username, AppDbContext context)
+// ----------------------------------
+//      Цикл программы
+// ----------------------------------
+    static int CheckIfUserExists(string username, AppDbContext context, ref int user_id)
     {
-        if (context.authors
+        int ret_code = (int)UserStatus.USER_DONT_EXIST;
+
+        var select_id = context.authors
                     .Where(author => author.author_name == username)
-                    .Select(author => author.author_name)
-                    .Any())
+                    .Select(author => author.author_id);
+        if (select_id.Any())
         {
-            return (int)UserStatus.USER_IS_AUTHOR;
+            ret_code = (int)UserStatus.USER_IS_AUTHOR;
         }
-        if (context.readers
+
+        select_id = context.readers
                     .Where(reader => reader.reader_name == username)
-                    .Select(reader => reader.reader_name)
-                    .Any())
+                    .Select(reader => reader.reader_id);
+        if (select_id.Any())
         {
-            return (int)UserStatus.USER_IS_READER;
+            ret_code = (int)UserStatus.USER_IS_READER;
         }
-        return (int)UserStatus.USER_DONT_EXIST;
+        
+        user_id = select_id.Sum();
+        return ret_code;
     }
+
+    // 1. Посмотреть свои книги
+    static IEnumerable<string> GetUsersBooks(int user_id, AppDbContext context)
+    {
+        var information =
+            from books in context
+            where books.book_author_id = user_id
+            select new { Task.book_id, books.book_name, books.book_ammount };
+
+        return information;
+    }
+// ----------------------------------
+//      Main
+// ----------------------------------
     static void Main()
     {
         AppDbContext context = new AppDbContext();
@@ -78,6 +102,7 @@ class Program
 
         string name = "";
         string password = "";
+        int user_id = -1;
 
         bool logged_in = false;
         int user_status = 0;
@@ -87,7 +112,7 @@ class Program
             name = Console.ReadLine();
             password = Console.ReadLine();
 
-            user_status = CheckIfUserExists(name, context);
+            user_status = CheckIfUserExists(name, context, ref user_id);
             if (user_status != (int)UserStatus.USER_DONT_EXIST)
             {
                 logged_in = true;
@@ -295,7 +320,7 @@ class Program
         {
             Console.WriteLine($"{pr.Id}: {pr.Name} - {pr.Price}");
         }
-
+        
         int[] nums = { 1, 2, 3, 4, 5 };
 
         var evenNums = nums.Where(x => x % 2 == 0);

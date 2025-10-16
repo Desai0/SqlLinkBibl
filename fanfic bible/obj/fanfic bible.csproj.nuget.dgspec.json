@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
+    "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
   },
   "projects": {
-    "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
+    "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "projectUniqueName": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
         "projectName": "fanfic bible",
-        "projectPath": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
-        "packagesPath": "C:\\Users\\SuperFurry228\\.nuget\\packages\\",
-        "outputPath": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
+        "projectPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "packagesPath": "C:\\Users\\studentcoll\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\studentcoll\\Source\\Repos\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\SuperFurry228\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\studentcoll\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,13 +38,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -83,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
