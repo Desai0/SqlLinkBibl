@@ -11,7 +11,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.10",
           "Microsoft.SqlServer.DacFx": "170.2.70",
-          "linq2db": "5.4.1"
+          "linq2db": "5.4.1.9"
         },
         "runtime": {
           "fanfic bible.dll": {}
@@ -76,11 +76,11 @@
           }
         }
       },
-      "linq2db/5.4.1": {
+      "linq2db/5.4.1.9": {
         "runtime": {
-          "lib/net6.0/linq2db.dll": {
-            "assemblyVersion": "5.4.1.0",
-            "fileVersion": "5.4.1.0"
+          "lib/net8.0/linq2db.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
           }
         }
       },
@@ -1402,12 +1402,12 @@
       "path": "azure.storage.common/12.17.0",
       "hashPath": "azure.storage.common.12.17.0.nupkg.sha512"
     },
-    "linq2db/5.4.1": {
+    "linq2db/5.4.1.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qyH32MbFK6T55KsEcQYTbPFfkOa1Mo65lY/Zo8SFVMy0pwkQBCTnA/RUxyG5+l3D/mgfPz85PH3upDrtklSMrw==",
-      "path": "linq2db/5.4.1",
-      "hashPath": "linq2db.5.4.1.nupkg.sha512"
+      "sha512": "sha512-Djc7yNoVT7byauCbFddUi87FXGfUdk1TtXC2lYQOPt86674IpGMPas7JQkU1AJKnTqpuZeaYdgRqEn7hASpZPQ==",
+      "path": "linq2db/5.4.1.9",
+      "hashPath": "linq2db.5.4.1.9.nupkg.sha512"
     },
     "Microsoft.ApplicationInsights/2.23.0": {
       "type": "package",
