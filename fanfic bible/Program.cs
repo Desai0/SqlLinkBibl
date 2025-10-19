@@ -10,10 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using fanfic_bible;
+using fanfic_bible.db;
+using static fanfic_bible.db.dbMiddleMan;
 using static LinqToDB.Reflection.Methods.LinqToDB.Insert;
 
-// Тут надо будет придумать как подключиться к бд
-public class AppDbContext : DbContext
+/*public class AppDbContext : DbContext
 {
     public DbSet<book> books { get; set; }
     public DbSet<reader> readers { get; set; }
@@ -34,67 +35,41 @@ public class AppDbContext : DbContext
             //dacServices.ImportBacpac(BacPackage.Load(bacpacFilePath), "DB_NAME", new DacImportOptions());
         }
     }
-}
+}*/// На память
 
 // ==================================
 // Программа
 // ==================================
 class Program
 {
+    static dbMiddleMan context = new dbMiddleMan();
     enum UserStatus
     {
             USER_DONT_EXIST = 0
         ,   USER_IS_AUTHOR  = 1
         ,   USER_IS_READER  = 2
     };
-// ----------------------------------
-//      Цикл программы
-// ----------------------------------
-    static int CheckIfUserExists(string username, AppDbContext context, ref int user_id)
+
+    static int CheckIfUserExists(string username)
     {
         int ret_code = (int)UserStatus.USER_DONT_EXIST;
 
-        var select_id = context.authors
-                    .Where(author => author.author_name == username)
-                    .Select(author => author.author_id);
-        if (select_id.Any())
+        if (context.UserIsInAuthors(username))
         {
             ret_code = (int)UserStatus.USER_IS_AUTHOR;
         }
 
-        select_id = context.readers
-                    .Where(reader => reader.reader_name == username)
-                    .Select(reader => reader.reader_id);
-        if (select_id.Any())
+        if (context.UserIsInReaders(username))
         {
             ret_code = (int)UserStatus.USER_IS_READER;
         }
-        
-        user_id = select_id.Sum();
         return ret_code;
-    }
-
-    // 1. Посмотреть свои книги
-    static IEnumerable<string> GetUsersBooks(int user_id, AppDbContext context)
-    {
-        var information =
-            from books in context
-            where books.book_author_id = user_id
-            select new { Task.book_id, books.book_name, books.book_ammount };
-
-        return information;
     }
 // ----------------------------------
 //      Main
 // ----------------------------------
     static void Main()
     {
-        AppDbContext context = new AppDbContext();
-
-        //Console.WriteLine(context.bacpacFilePath);
-
-        context.Database.EnsureCreated();
-
 // ==========================================
 //      Интерфейс
 // ==========================================
@@ -102,7 +77,6 @@ class Program
 
         string name = "";
         string password = "";
-        int user_id = -1;
 
         bool logged_in = false;
         int user_status = 0;
@@ -112,7 +86,7 @@ class Program
             name = Console.ReadLine();
             password = Console.ReadLine();
 
-            user_status = CheckIfUserExists(name, context, ref user_id);
+            user_status = CheckIfUserExists(name);
             if (user_status != (int)UserStatus.USER_DONT_EXIST)
             {
                 logged_in = true;
@@ -121,43 +95,57 @@ class Program
         }
 
         Console.Clear();
-        Console.WriteLine($"Добро божаловать {name}!");
+        Console.WriteLine($"Добро пожаловать {name}!");
         Console.ReadKey();
         Console.Clear();
-        // ----------------------------------
-        // Цикл программы
-        // ----------------------------------
+
+// ----------------------------------
+//      Цикл программы
+// ----------------------------------
         bool exit = false;
-        string user_input = "";
-        if (user_status == (int)UserStatus.USER_IS_AUTHOR) {
+        if (user_status == (int)UserStatus.USER_IS_AUTHOR)
+        {
+            int user_id = context.GetAuthorIdByName(name);
+            string user_input = "";
             while (!exit)
             {
                 Console.WriteLine("Введите, что вы хотите сделать:");
                 Console.WriteLine("1: Посмотреть свои книги");
                 Console.WriteLine("2: Добавить книгу");
                 Console.WriteLine("3: Изменить книгу");
+                Console.WriteLine("4: Посмотреть жанры"); // Было решено добавить новую функцию иначе авторы бы тупо не знали названия жанров
                 Console.WriteLine("0: Выйти");
 
                 user_input = Console.ReadLine();
                 switch (user_input)
                 {
                     case ("1"):
-                        // код
+                        context.PrintAuthorsBooks(user_id);
+                        Console.ReadKey();
                         break;
                     case ("2"):
-                        // код
+                        context.PrintAddBook(user_id);
+                        Console.ReadKey();
                         break;
                     case ("3"):
-                        // код
+                        context.PrintEditBook(user_id);
+                        Console.ReadKey();
+                        break;
+                    case ("4"):
+                        context.PrintGenres();
+                        Console.ReadKey();
                         break;
                     case ("0"):
                         exit = true;
                         break;
                 }
+                Console.Clear();
             }
         }
         else if (user_status == (int)UserStatus.USER_IS_READER)
         {
+            int user_id = context.GetReaderIdByName(name);
+            string user_input = "";
             while (!exit)
             {
                 Console.WriteLine("Введите, что вы хотите сделать:");
@@ -170,10 +158,12 @@ class Program
                 switch (user_input)
                 {
                     case ("1"):
-                        // код
+                        context.PrintBooks();
+                        Console.ReadKey();
                         break;
                     case ("2"):
-                        // код
+                        context.PrintTakeBook(user_id);
+                        Console.ReadKey();
                         break;
                     case ("3"):
                         // код
@@ -182,11 +172,12 @@ class Program
                         exit = true;
                         break;
                 }
+                Console.Clear();
             }
         }
 
-        // ==========================================
-        // ==========================================
+// ==========================================
+// ==========================================
 
 
         // ==========================================

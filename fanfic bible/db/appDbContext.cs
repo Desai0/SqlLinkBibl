@@ -18,24 +18,26 @@ namespace fanfic_bible.db
 
         // Данные нужно менять в зависимости от сервера на компе
         static string connectionString =
-            "Data Source=danems-thing\\SQLEXPRESS;" + // название локального сервера
-            "Initial Catalog=womanko_reimagined;" +
+            "Data Source=SUPERPC228;" + // название локального сервера
+            //"Initial Catalog=DB_NAME;" +
+            //"Data Source=danems-thing\\SQLEXPRESS;" + // название локального сервера
+            "Initial Catalog=womanko_reimagined;" + // 😎
             "Integrated Security=True;" +
             "Persist Security Info=false;" +
             "Pooling=False;" +
-            "MultipleActiveResultSets=False;" + //Нафиг нам вот это? Вроде несколько запросов зв раз у нас не нужно держать?
+            "MultipleActiveResultSets=False;" + //Нафиг нам вот это? Вроде несколько запросов зв раз у нас не нужно держать? // Хз, пусть будет лол
             "Encrypt=True;" +
             "TrustServerCertificate=True";
 
         //static string connectionString = "Data Source=192.168.9.203\\sqlexpress;Initial Catalog=DB_NAME;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True";
-        static string bacpacFilePath = $"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName}\\b.bacpac";
+        //static string bacpacFilePath = $"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName}\\b.bacpac";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(connectionString);
                 //var dacServices = new DacServices(connectionString);
-                //dacServices.ImportBacpac(BacPackage.Load(bacpacFilePath), "DB_NAME", new DacImportOptions());
+                //dacServices.ImportBacpac(BacPackage.Load(bacpacFilePath), "womanko_reimagined", new DacImportOptions());
             }
         }
     }
