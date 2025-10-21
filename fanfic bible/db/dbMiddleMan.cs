@@ -246,6 +246,8 @@ namespace fanfic_bible.db
             }
             issuedBook.book_amount--; // Добавил вычетание аммаунта книги
 
+            issuedBook.book_amount -= 1;
+
             issuance_key newKey = new issuance_key();
             
             newKey.ik_date = DateOnly.FromDateTime(DateTime.Now);
@@ -290,6 +292,30 @@ namespace fanfic_bible.db
             {
                 Console.WriteLine("Неверный ввод данных");
             }
+        }
+
+        // Возврат Книги (Закрытие Ключа)
+        // Возвращает true при удачном закрытии, false иначе
+        public bool un_issue_book (int ik_id)
+        {
+            issuance_key? key = db.issuance_keys.Find(ik_id);
+            if (key == null)
+            {
+                return false;
+            }
+
+            book? bookInfo = db.books.Find(key.ik_book_id);
+
+            if (bookInfo == null)
+            {
+                return false;
+            }
+
+            key.ik_closed = true;
+            bookInfo.book_amount += 1;
+
+            db.SaveChanges();
+            return true;
         }
 
         // Получение UserModel читателя

@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
         "packagesPath": "C:\\Users\\SuperFurry228\\.nuget\\packages\\",
         "outputPath": "E:\\PROGRAMMIING\\zCollage\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
+=======
+    "D:\\!ShoolSchit\\Projects\\linkup\\fanfiction\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
+  },
+  "projects": {
+    "D:\\!ShoolSchit\\Projects\\linkup\\fanfiction\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\!ShoolSchit\\Projects\\linkup\\fanfiction\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "projectName": "fanfic bible",
+        "projectPath": "D:\\!ShoolSchit\\Projects\\linkup\\fanfiction\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "D:\\!ShoolSchit\\Projects\\linkup\\fanfiction\\SqlLinkBibl\\fanfic bible\\obj\\",
+>>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\SuperFurry228\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -83,7 +101,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+>>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
         }
       }
     }
