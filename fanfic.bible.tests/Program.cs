@@ -18,7 +18,7 @@ namespace fanfic.bible.tests
                 Console.WriteLine($"Загружена сборка: {assembly.FullName}");
                 Console.WriteLine();
 
-                TestRunner.RunAllTests();
+            TestRunner.RunAllTests();
             }
             catch (Exception ex)
             {
