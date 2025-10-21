@@ -1,0 +1,6 @@
+C:\Users\SuperFurry228\source\repos\Desai0\SqlLinkBibl\fanfic test\obj\Debug\net8.0\fanfic test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SuperFurry228\source\repos\Desai0\SqlLinkBibl\fanfic test\obj\Debug\net8.0\fanfic test.AssemblyInfoInputs.cache
+C:\Users\SuperFurry228\source\repos\Desai0\SqlLinkBibl\fanfic test\obj\Debug\net8.0\fanfic test.AssemblyInfo.cs
+C:\Users\SuperFurry228\source\repos\Desai0\SqlLinkBibl\fanfic test\obj\Debug\net8.0\fanfic test.csproj.CoreCompileInputs.cache
+C:\Users\SuperFurry228\source\repos\Desai0\SqlLinkBibl\fanfic test\obj\Debug\net8.0\fanfic test.sourcelink.json
+C:\Users\SuperFurry228\source\repos\Desai0\SqlLinkBibl\fanfic test\obj\Debug\net8.0\fanfic test.csproj.AssemblyReference.cache

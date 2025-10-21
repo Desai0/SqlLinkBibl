@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fanfic bible")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ae6128f26c5057016c70ae80f6a7a4571938001")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02ee63899e70227e17d240095d214dd6413e942a")]
 [assembly: System.Reflection.AssemblyProductAttribute("fanfic bible")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fanfic bible")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

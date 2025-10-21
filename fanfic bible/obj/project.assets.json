@@ -6265,23 +6265,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\e8351\\.nuget\\packages\\": {},
+    "C:\\Users\\SuperFurry228\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\e8351\\Downloads\\SqlLinkBibl-main2\\SqlLinkBibl-main2\\fanfic bible\\fanfic bible.csproj",
+      "projectUniqueName": "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
       "projectName": "fanfic bible",
-      "projectPath": "C:\\Users\\e8351\\Downloads\\SqlLinkBibl-main2\\SqlLinkBibl-main2\\fanfic bible\\fanfic bible.csproj",
-      "packagesPath": "C:\\Users\\e8351\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\e8351\\Downloads\\SqlLinkBibl-main2\\SqlLinkBibl-main2\\fanfic bible\\obj\\",
+      "projectPath": "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+      "packagesPath": "C:\\Users\\SuperFurry228\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\e8351\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SuperFurry228\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

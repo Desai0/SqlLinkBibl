@@ -12,20 +12,18 @@ namespace fanfic_bible.db
     {
         AppDbContext db;
 
-        public dbMiddleMan(AppDbContext context)
-        {
-            db = context;
-            db.Database.EnsureCreated();
-        }
-
         public dbMiddleMan()
         {
             db = new AppDbContext();
             db.Database.EnsureCreated();
         }
-// ==================================
-//      Функции
-// ==================================
+        public dbMiddleMan(AppDbContext context) // Для тестов
+        {
+            db = context;
+        }
+        // ==================================
+        //      Функции
+        // ==================================
         // Тут Был Аким
         public bool UserIsInAuthors(string username)
         {
@@ -80,19 +78,20 @@ namespace fanfic_bible.db
         }
 
         // 2. Добавить книгу
-        public void AddBook(book new_book)
+        public bool AddBook(book new_book)
         {
             var info = from genre in db.genres
                        where genre.genre_id == new_book.book_genre_id
                        select genre;
             if (!info.Any())
             {
-                Console.WriteLine("Id несуществующего жанра");
+                return false;
             }
             else
             {
                 db.books.Add(new_book);
                 db.SaveChanges();
+                return true;
             }
         }
         public void PrintAddBook(int author_id)
@@ -122,7 +121,14 @@ namespace fanfic_bible.db
                 return;
             }
             new_book.book_author_id = author_id;
-            AddBook(new_book);
+            if (AddBook(new_book))
+            {
+                Console.WriteLine("Книга добавлена");
+            }
+            else
+            {
+                Console.WriteLine("Id несуществующего жанра");
+            }
         }
 
         // 3. Изменить книгу
@@ -133,10 +139,8 @@ namespace fanfic_bible.db
             book? edit_book;
             if (Int32.TryParse(Console.ReadLine(), out x))
             {
-                edit_book = (from book in db.books
-                           where book.book_author_id == author_id && book.book_id == x
-                           select book).First();
-                if  (edit_book == null)
+                edit_book = db.books.Find(x);
+                if (edit_book == null || edit_book.book_author_id != author_id)
                 {
                     Console.WriteLine("У вас нет книги с таким id");
                     return;
@@ -155,6 +159,7 @@ namespace fanfic_bible.db
                 edit_book.book_name = Console.ReadLine();
             }
             Console.WriteLine($"Хотите поменять жанр книги ({edit_book.book_genre_id})?[y/N]");
+            usr_choise = Console.ReadLine();
             if (usr_choise == "y")
             {
                 Console.WriteLine("Введите новое id жанра книги:");
@@ -169,6 +174,7 @@ namespace fanfic_bible.db
                 }
             }
             Console.WriteLine($"Хотите поменять кол-во книги ({edit_book.book_amount})?[y/N]");
+            usr_choise = Console.ReadLine();
             if (usr_choise == "y")
             {
                 Console.WriteLine("Введите новое кол-во книги:");
@@ -182,6 +188,7 @@ namespace fanfic_bible.db
                     Console.WriteLine("Неверный ввод данных");
                 }
             } // Этого поидее достаточно, если верить https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/how-to-update-rows-in-the-database
+            Console.WriteLine("Книга изменена");
         }
 
         // 4. Посмотреть жанры
@@ -244,21 +251,19 @@ namespace fanfic_bible.db
             // Заменяет верхнее потому что https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/how-to-update-rows-in-the-database
             var issuedBook = (from book in db.books
                               where book.book_id == book_id
-                              select book).First();
+                              select book).FirstOrDefault(); //для работы теста
 
             if (issuedBook == null || issuedBook.book_amount <= 0)
             {
                 return false;
             }
-            issuedBook.book_amount--; // Добавил вычетание аммаунта книги
-
-            issuedBook.book_amount -= 1;
+            issuedBook.book_amount--;
 
             issuance_key newKey = new issuance_key();
-            
+
             newKey.ik_date = DateOnly.FromDateTime(DateTime.Now);
             newKey.ik_book_id = book_id;
-            newKey.ik_reader_id= reader_id;
+            newKey.ik_reader_id = reader_id;
             newKey.ik_closed = false;
 
             db.issuance_keys.Add(newKey);
@@ -302,7 +307,7 @@ namespace fanfic_bible.db
 
         // Возврат Книги (Закрытие Ключа)
         // Возвращает true при удачном закрытии, false иначе
-        public bool un_issue_book (int ik_id)
+        public bool un_issue_book(int ik_id)
         {
             issuance_key? key = db.issuance_keys.Find(ik_id);
             if (key == null)
@@ -341,10 +346,7 @@ namespace fanfic_bible.db
                 .Select(i => i.ik_book_id)
                 .ToList();
 
-
             return model;
         }
-
-
     }
 }

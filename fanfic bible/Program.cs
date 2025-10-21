@@ -13,9 +13,7 @@ using fanfic_bible;
 using fanfic_bible.db;
 using static fanfic_bible.db.dbMiddleMan;
 using static LinqToDB.Reflection.Methods.LinqToDB.Insert;
-using fanfic_bible.db;
 
-<<<<<<< HEAD
 /*public class AppDbContext : DbContext
 {
     public DbSet<book> books { get; set; }
@@ -38,10 +36,6 @@ using fanfic_bible.db;
         }
     }
 }*/// На память
-=======
-// Тут надо будет придумать как подключиться к бд
-
->>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
 
 // ==================================
 // Программа
@@ -51,15 +45,12 @@ class Program
     static dbMiddleMan context = new dbMiddleMan();
     enum UserStatus
     {
-            USER_DONT_EXIST = 0
-        ,   USER_IS_AUTHOR  = 1
-        ,   USER_IS_READER  = 2
+        USER_DONT_EXIST = 0
+        , USER_IS_AUTHOR = 1
+        , USER_IS_READER = 2
     };
 
     static int CheckIfUserExists(string username)
-=======
-    static int CheckIfUserExists(string username, AppDbContext context, ref int user_id)
->>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
     {
         int ret_code = (int)UserStatus.USER_DONT_EXIST;
 
@@ -74,23 +65,19 @@ class Program
         }
         return ret_code;
     }
-// ----------------------------------
-//      Main
-// ----------------------------------
+    // ----------------------------------
+    //      Main
+    // ----------------------------------
     static void Main()
     {
-        fanfic.bible.tests.TestRunner.RunAllTests();
-        Console.WriteLine("All tests passed. Starting the application.");
-        Console.ReadKey();
-        Console.Clear();
-// ==========================================
-//      Интерфейс
-// ==========================================
+        // ==========================================
+        //      Интерфейс
+        // ==========================================
         Console.WriteLine("Добро пожаловать в Библиотеку!");
 
         string name = "";
         string password = "";
-        
+
         bool logged_in = false;
         int user_status = 0;
         while (!logged_in)
@@ -99,11 +86,15 @@ class Program
             name = Console.ReadLine();
             password = Console.ReadLine();
 
-<<<<<<< HEAD
             user_status = CheckIfUserExists(name);
             if (user_status != (int)UserStatus.USER_DONT_EXIST)
             {
                 logged_in = true;
+            }
+            else
+            {
+                Console.WriteLine("Неверный ввод данных");
+                Console.ReadKey();
             }
             Console.Clear();
         }
@@ -113,9 +104,9 @@ class Program
         Console.ReadKey();
         Console.Clear();
 
-// ----------------------------------
-//      Цикл программы
-// ----------------------------------
+        // ----------------------------------
+        //      Цикл программы
+        // ----------------------------------
         bool exit = false;
         if (user_status == (int)UserStatus.USER_IS_AUTHOR)
         {
@@ -166,6 +157,7 @@ class Program
                 Console.WriteLine("1: Посмотреть книги");
                 Console.WriteLine("2: Взать книгу");
                 Console.WriteLine("3: Вернуть книгу");
+                Console.WriteLine("4: Посмотреть взятые книги");
                 Console.WriteLine("0: Выйти");
 
                 user_input = Console.ReadLine();
@@ -182,6 +174,9 @@ class Program
                     case ("3"):
                         // код
                         break;
+                    case ("4"):
+                        // код
+                        break;
                     case ("0"):
                         exit = true;
                         break;
@@ -189,109 +184,5 @@ class Program
                 Console.Clear();
             }
         }
-
-// ==========================================
-// ==========================================
-=======
-        man.issue_book(5, 2);
-
-
-        //    AppDbContext context = new AppDbContext();
-
-        //    //Console.WriteLine(context.bacpacFilePath);
->>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
-
-        //    context.Database.EnsureCreated();
-
-        // ==========================================
-        //      Интерфейс
-        // ==========================================
-        //    Console.WriteLine("Добро пожаловать в Библиотеку!");
-
-        //    string name = "";
-        //    string password = "";
-        //    int user_id = -1;
-
-        //    bool logged_in = false;
-        //    int user_status = 0;
-        //    while (!logged_in)
-        //    {
-        //        Console.WriteLine("Введите своё имя пользователя и пароль чтобы войти:");
-        //        name = Console.ReadLine();
-        //        password = Console.ReadLine();
-
-        //        user_status = CheckIfUserExists(name, context, ref user_id);
-        //        if (user_status != (int)UserStatus.USER_DONT_EXIST)
-        //        {
-        //            logged_in = true;
-        //        }
-        //        Console.Clear();
-        //    }
-
-        //    Console.Clear();
-        //    Console.WriteLine($"Добро божаловать {name}!");
-        //    Console.ReadKey();
-        //    Console.Clear();
-        //    // ----------------------------------
-        //    // Цикл программы
-        //    // ----------------------------------
-        //    bool exit = false;
-        //    string user_input = "";
-        //    if (user_status == (int)UserStatus.USER_IS_AUTHOR) {
-        //        while (!exit)
-        //        {
-        //            Console.WriteLine("Введите, что вы хотите сделать:");
-        //            Console.WriteLine("1: Посмотреть свои книги");
-        //            Console.WriteLine("2: Добавить книгу");
-        //            Console.WriteLine("3: Изменить книгу");
-        //            Console.WriteLine("0: Выйти");
-
-        //            user_input = Console.ReadLine();
-        //            switch (user_input)
-        //            {
-        //                case ("1"):
-        //                    // код
-        //                    break;
-        //                case ("2"):
-        //                    // код
-        //                    break;
-        //                case ("3"):
-        //                    // код
-        //                    break;
-        //                case ("0"):
-        //                    exit = true;
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //    else if (user_status == (int)UserStatus.USER_IS_READER)
-        //    {
-        //        while (!exit)
-        //        {
-        //            Console.WriteLine("Введите, что вы хотите сделать:");
-        //            Console.WriteLine("1: Посмотреть книги");
-        //            Console.WriteLine("2: Взать книгу");
-        //            Console.WriteLine("3: Вернуть книгу");
-        //            Console.WriteLine("0: Выйти");
-
-        //            user_input = Console.ReadLine();
-        //            switch (user_input)
-        //            {
-        //                case ("1"):
-        //                    // код
-        //                    break;
-        //                case ("2"):
-        //                    // код
-        //                    break;
-        //                case ("3"):
-        //                    // код
-        //                    break;
-        //                case ("0"):
-        //                    exit = true;
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //}
     }
 }
