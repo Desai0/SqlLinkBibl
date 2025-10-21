@@ -56,7 +56,6 @@ class Program
         ,   USER_IS_READER  = 2
     };
 
-<<<<<<< HEAD
     static int CheckIfUserExists(string username)
 =======
     static int CheckIfUserExists(string username, AppDbContext context, ref int user_id)
@@ -75,12 +74,15 @@ class Program
         }
         return ret_code;
     }
-<<<<<<< HEAD
 // ----------------------------------
 //      Main
 // ----------------------------------
     static void Main()
     {
+        fanfic.bible.tests.TestRunner.RunAllTests();
+        Console.WriteLine("All tests passed. Starting the application.");
+        Console.ReadKey();
+        Console.Clear();
 // ==========================================
 //      Интерфейс
 // ==========================================
@@ -88,18 +90,14 @@ class Program
 
         string name = "";
         string password = "";
-=======
-
-
-
-    // ----------------------------------
-    //      Main
-    // ----------------------------------
-    static void Main()
-    {
->>>>>>> Доделал пропущенные части middle man, теперб количество книг уменьшается и добавленна функция закрытия ключа.
-
-        dbMiddleMan man = new();
+        
+        bool logged_in = false;
+        int user_status = 0;
+        while (!logged_in)
+        {
+            Console.WriteLine("Введите своё имя пользователя и пароль чтобы войти:");
+            name = Console.ReadLine();
+            password = Console.ReadLine();
 
 <<<<<<< HEAD
             user_status = CheckIfUserExists(name);

@@ -12,6 +12,12 @@ namespace fanfic_bible.db
     {
         AppDbContext db;
 
+        public dbMiddleMan(AppDbContext context)
+        {
+            db = context;
+            db.Database.EnsureCreated();
+        }
+
         public dbMiddleMan()
         {
             db = new AppDbContext();

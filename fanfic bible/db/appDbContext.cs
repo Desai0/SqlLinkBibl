@@ -16,6 +16,14 @@ namespace fanfic_bible.db
         public DbSet<genre> genres { get; set; }
         public DbSet<issuance_key> issuance_keys { get; set; }
 
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
+        public AppDbContext()
+        {
+        }
+
         // Данные нужно менять в зависимости от сервера на компе
         static string connectionString =
             "Data Source=SUPERPC228;" + // название локального сервера
