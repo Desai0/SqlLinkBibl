@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\studentcoll\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
+    "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {}
   },
   "projects": {
-    "C:\\Users\\studentcoll\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
+    "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\studentcoll\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "projectUniqueName": "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
         "projectName": "fanfic bible",
-        "projectPath": "C:\\Users\\studentcoll\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
-        "packagesPath": "C:\\Users\\studentcoll\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\studentcoll\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
+        "projectPath": "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\fanfic bible.csproj",
+        "packagesPath": "C:\\Users\\SuperFurry228\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SuperFurry228\\source\\repos\\Desai0\\SqlLinkBibl\\fanfic bible\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\studentcoll\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SuperFurry228\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -52,11 +52,19 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.SqlServer.DacFx": {
+              "target": "Package",
+              "version": "[170.2.70, )"
+            },
+            "linq2db": {
+              "target": "Package",
+              "version": "[5.4.1.9, )"
             }
           },
           "imports": [
@@ -75,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
