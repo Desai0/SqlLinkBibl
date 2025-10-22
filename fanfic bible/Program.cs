@@ -172,10 +172,12 @@ class Program
                         Console.ReadKey();
                         break;
                     case ("3"):
-                        // код
+                        context.PrintUnIssueBook(user_id);
+                        Console.ReadKey();
                         break;
                     case ("4"):
-                        // код
+                        context.PrintTakenBooks(user_id);
+                        Console.ReadKey();
                         break;
                     case ("0"):
                         exit = true;

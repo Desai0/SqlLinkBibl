@@ -249,7 +249,7 @@ namespace fanfic_bible.db
             //    .ToList()[0]; //Видимо это всё же не костыль, но get_user комент слишко смешной чтобы его удалять
 
             // Заменяет верхнее потому что https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/how-to-update-rows-in-the-database
-            var issuedBook = (from book in db.books
+            book? issuedBook = (from book in db.books
                               where book.book_id == book_id
                               select book).FirstOrDefault(); //для работы теста
 
@@ -305,11 +305,14 @@ namespace fanfic_bible.db
             }
         }
 
+        // 3. Вернуть книгу
         // Возврат Книги (Закрытие Ключа)
         // Возвращает true при удачном закрытии, false иначе
-        public bool un_issue_book(int ik_id)
+        public bool un_issue_book(int ik_reader_id, int ik_book_id)
         {
-            issuance_key? key = db.issuance_keys.Find(ik_id);
+            issuance_key? key = (from issuance_key in db.issuance_keys
+                                 where issuance_key.ik_reader_id == ik_reader_id && issuance_key.ik_book_id == ik_book_id
+                                 select issuance_key).FirstOrDefault();
             if (key == null)
             {
                 return false;
@@ -327,6 +330,38 @@ namespace fanfic_bible.db
 
             db.SaveChanges();
             return true;
+        }
+        public void PrintUnIssueBook(int ik_reader_id)
+        {
+            Console.WriteLine("Введи id книги которую нахрен хочешь сволочь?");
+            int x;
+            if (Int32.TryParse(Console.ReadLine(), out x))
+            {
+                if (un_issue_book(ik_reader_id, x) == true)
+                {
+                    Console.WriteLine("Книга была возвращена");
+                }
+                else
+                {
+                    Console.WriteLine("У вас нет такой книги");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Неверный ввод данных");
+            }
+        }
+
+        // 4. Посмотреть взятые книги
+        public void PrintTakenBooks(int ik_reader_id)
+        {
+            UserModel user = get_user(ik_reader_id);
+            Console.WriteLine($"date\tis closed\tbook id");
+            foreach (issuance_key? ik in user.issuances)
+            {
+                Console.WriteLine($"{ik.ik_id}\t{ik.ik_closed}\t{ik.ik_book_id}");
+            }
+            Console.WriteLine("Неверный ввод данных");
         }
 
         // Получение UserModel читателя
